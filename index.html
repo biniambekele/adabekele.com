@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adelaide Bekele</title>
+  <script type="text/javascript">
+    window.addEventListener('load', () => {
+      document.body.classList.remove('paused');
+    });
+  </script>
+  <style>
+    body {
+      background: #cccfb1 url('img/a.jpg') 0 0/100% no-repeat;
+      animation-name: deers;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: steps(1, end);
+    }
+
+    body.paused {
+      animation-play-state: paused;
+    }
+
+    @media (min-width: 800px) and (orientation: landscape) {
+      body {
+        background-size: cover;
+      }
+    }
+
+    @keyframes deers {
+      0% {
+        background-image: url('img/a.jpg');
+      }
+
+      1% {
+        background-image: url('img/a.jpg');
+      }
+
+      10% {
+        background-image: url('img/b.jpg');
+      }
+
+      20% {
+        background-image: url('img/c.jpg');
+      }
+
+      30% {
+        background-image: url('img/d.jpg');
+      }
+
+      40% {
+        background-image: url('img/e.jpg');
+      }
+
+      50% {
+        background-image: url('img/f.jpg');
+      }
+
+      60% {
+        background-image: url('img/g.jpg');
+      }
+
+      70% {
+        background-image: url('img/h.jpg');
+      }
+
+      80% {
+        background-image: url('img/i.jpg');
+      }
+
+      90% {
+        background-image: url('img/j.jpg');
+      }
+
+      100% {
+        background-image: url('img/i.jpg');
+      }
+    }
+  </style>
+  <link rel="preload" as="image" href="img/a.jpg" />
+  <link rel="preload" as="image" href="img/b.jpg" />
+  <link rel="preload" as="image" href="img/c.jpg" />
+  <link rel="preload" as="image" href="img/d.jpg" />
+  <link rel="preload" as="image" href="img/e.jpg" />
+  <link rel="preload" as="image" href="img/f.jpg" />
+  <link rel="preload" as="image" href="img/g.jpg" />
+  <link rel="preload" as="image" href="img/h.jpg" />
+  <link rel="preload" as="image" href="img/i.jpg" />
+</head>
+
+<body class="paused">
+</body>
+
+</html>
