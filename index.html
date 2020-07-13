@@ -4,37 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adelaide Bekele</title>
-  <script type="text/javascript">
-    window.addEventListener('load', () => {
-      document.body.classList.remove('paused');
-    });
-  </script>
+  <title>Adelaide (Ada) Bekele</title>
+  <link rel="preload" href="img/a.jpg" as="image">
   <style>
     body {
       background: #cccfb1 url('img/a.jpg') 0 0/100% no-repeat;
+    }
+
+    body.animated {
       animation-name: deers;
       animation-duration: 10s;
       animation-iteration-count: infinite;
       animation-timing-function: steps(1, end);
     }
 
-    body.paused {
-      animation-play-state: paused;
-    }
-
-    @media (min-width: 800px) and (orientation: landscape) {
-      body {
-        background-size: cover;
-      }
-    }
-
     @keyframes deers {
       0% {
-        background-image: url('img/a.jpg');
-      }
-
-      1% {
         background-image: url('img/a.jpg');
       }
 
@@ -78,19 +63,27 @@
         background-image: url('img/i.jpg');
       }
     }
+
+    @media (min-width: 800px) and (orientation: landscape) {
+      body {
+        background-size: cover;
+      }
+    }
   </style>
-  <link rel="preload" as="image" href="img/a.jpg" />
-  <link rel="preload" as="image" href="img/b.jpg" />
-  <link rel="preload" as="image" href="img/c.jpg" />
-  <link rel="preload" as="image" href="img/d.jpg" />
-  <link rel="preload" as="image" href="img/e.jpg" />
-  <link rel="preload" as="image" href="img/f.jpg" />
-  <link rel="preload" as="image" href="img/g.jpg" />
-  <link rel="preload" as="image" href="img/h.jpg" />
-  <link rel="preload" as="image" href="img/i.jpg" />
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      await Promise.all(Array.prototype.map.call('bcdefghi', (name) => new Promise((resolve) => {
+        const img = new Image();
+        img.src = `img/${name}.jpg`;
+        img.onload = resolve;
+        return img;
+      })));
+      document.body.classList.add('animated');
+    });
+  </script>
 </head>
 
-<body class="paused">
+<body>
 </body>
 
 </html>
